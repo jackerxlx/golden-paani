@@ -1,71 +1,104 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
 import { Search, User, MapPin, ShoppingCart } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <header className="absolute top-0 left-0 w-full z-50">
-      <div className="max-w-[1500px] mx-auto h-[100px] px-12 flex items-center">
+    <header className="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
+      <div className="max-w-[1500px] mx-auto h-[90px] px-8 lg:px-12 flex items-center justify-between">
 
-        {/* Logo */}
-        <div className="w-[300px] flex items-center">
-          <Image
-            src="/images/logo.png"
-            alt="Golden Paani Logo"
-            width={240}
-            height={90}
-            priority
-            className="object-contain"
-          />
-        </div>
+        {/* ================= LOGO ================= */}
 
-        {/* Menu */}
-        <div className="flex-1 flex justify-center">
-          <ul className="flex items-center gap-16 text-white uppercase tracking-[4px] text-[14px] font-medium">
+        <Link href="/" className="flex flex-col leading-none select-none">
 
-            <li className="hover:text-[#D4AF37] duration-300 cursor-pointer">
-              Home
+          <h1 className="font-[var(--font-cormorant)] text-[44px] font-semibold tracking-wide text-[#D4AF37] leading-none">
+            GOLDEN PAANI
+          </h1>
+
+          <span className="mt-1 text-[10px] uppercase tracking-[5px] text-[#F5E7A1] font-medium">
+            PURE BY NATURE • PERFECTED FOR YOU
+          </span>
+
+        </Link>
+
+        {/* ================= MENU ================= */}
+
+        <nav>
+
+          <ul className="flex items-center gap-12">
+
+            <li>
+              <a
+                href="#"
+                className="uppercase text-[13px] tracking-[3px] text-white hover:text-[#D4AF37] transition-all duration-300"
+              >
+                Home
+              </a>
             </li>
 
-            <li className="hover:text-[#D4AF37] duration-300 cursor-pointer">
-              About
+            <li>
+              <a
+                href="#about"
+                className="uppercase text-[13px] tracking-[3px] text-white hover:text-[#D4AF37] transition-all duration-300"
+              >
+                About
+              </a>
             </li>
 
-            <li className="hover:text-[#D4AF37] duration-300 cursor-pointer">
-              Products
+            <li>
+              <a
+                href="#products"
+                className="uppercase text-[13px] tracking-[3px] text-white hover:text-[#D4AF37] transition-all duration-300"
+              >
+                Products
+              </a>
             </li>
 
-            <li className="hover:text-[#D4AF37] duration-300 cursor-pointer">
-              Benefits
+            <li>
+              <a
+                href="#benefits"
+                className="uppercase text-[13px] tracking-[3px] text-white hover:text-[#D4AF37] transition-all duration-300"
+              >
+                Benefits
+              </a>
             </li>
 
-            <li className="hover:text-[#D4AF37] duration-300 cursor-pointer">
-              Contact
+            <li>
+              <a
+                href="#contact"
+                className="uppercase text-[13px] tracking-[3px] text-white hover:text-[#D4AF37] transition-all duration-300"
+              >
+                Contact
+              </a>
             </li>
 
           </ul>
-        </div>
 
-        {/* Icons */}
-        <div className="w-[260px] flex justify-end items-center gap-6 text-white">
+        </nav>
+
+        {/* ================= ICONS ================= */}
+
+        <div className="flex items-center gap-6 text-white">
 
           <Search
-            size={22}
-            className="cursor-pointer hover:text-[#D4AF37] transition"
+            size={20}
+            className="cursor-pointer hover:text-[#D4AF37] transition-all duration-300"
           />
 
           <User
-            size={22}
-            className="cursor-pointer hover:text-[#D4AF37] transition"
+            size={20}
+            className="cursor-pointer hover:text-[#D4AF37] transition-all duration-300"
           />
 
           <MapPin
-            size={22}
-            className="cursor-pointer hover:text-[#D4AF37] transition"
+            size={20}
+            className="cursor-pointer hover:text-[#D4AF37] transition-all duration-300"
           />
 
           <ShoppingCart
-            size={22}
-            className="cursor-pointer hover:text-[#D4AF37] transition"
+            size={20}
+            className="cursor-pointer hover:text-[#D4AF37] transition-all duration-300"
           />
 
         </div>

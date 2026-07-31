@@ -2,42 +2,41 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat"
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center"
       style={{
         backgroundImage: "url('/images/about-bg.jpg')",
       }}
     >
-      {/* White Overlay */}
-      <div className="absolute inset-0 bg-[#F8F3EA]/75"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/45"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-10 lg:px-20 py-32">
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-20">
 
-        <div className="max-w-xl">
+        <div className="max-w-2xl">
 
-          <span className="uppercase tracking-[6px] text-[#B88A2A] text-sm font-medium">
+          <p className="uppercase tracking-[8px] text-[#D4AF37] text-sm mb-5">
             Our Story
-          </span>
+          </p>
 
-          <div className="w-16 h-[2px] bg-[#B88A2A] mt-3 mb-8"></div>
-
-          <h2 className="font-serif leading-tight text-[70px] text-[#1B1B1B]">
+          <h2 className="font-[var(--font-cormorant)] text-white text-6xl lg:text-7xl leading-tight">
             Rooted in Nature.
-            <br />
-            <span className="text-[#B88A2A]">
-              Crafted with Care.
-            </span>
           </h2>
 
-          <p className="mt-10 text-[21px] leading-10 text-[#444]">
-            Golden Paani is more than just skincare—it is a promise of
-            purity, wellness and timeless beauty.
+          <h2 className="font-[var(--font-cormorant)] text-[#D4AF37] text-6xl lg:text-7xl leading-tight mb-8">
+            Crafted with Care.
+          </h2>
+
+          <p className="text-white/90 text-lg leading-9 max-w-xl">
+            Golden Paani believes true beauty begins with nature.
+            Every skincare formula is thoughtfully crafted using
+            carefully selected ingredients to nourish, protect and
+            restore your skin naturally.
           </p>
 
-          <p className="mt-5 text-[20px] leading-10 text-[#555]">
-            Inspired by nature and perfected by science, every product is
-            carefully formulated to nourish, repair and reveal your
-            healthiest glow.
-          </p>
+          <button className="mt-12 border border-[#D4AF37] text-[#D4AF37] px-10 py-4 uppercase tracking-[3px] hover:bg-[#D4AF37] hover:text-black duration-300">
+            Learn More
+          </button>
 
         </div>
 

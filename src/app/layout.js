@@ -24,7 +24,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${poppins.variable} ${cormorant.variable}`}
     >
-      <body>{children}</body>
+      <body className="font-[var(--font-poppins)] bg-black text-white overflow-x-hidden">
+        {children}
+      </body>
     </html>
   );
 }
