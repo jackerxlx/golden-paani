@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductGallery from "@/components/ProductGallery";
 import Link from "next/link";
+import RelatedProducts from "@/components/RelatedProducts";
 
 export async function generateStaticParams() {
   return products.map((product) => ({
@@ -130,7 +131,7 @@ export default async function ProductDetails({ params }) {
 
         </div>
       </main>
-
+      <RelatedProducts currentSlug={product.slug} />
       <Footer />
     </>
   );
