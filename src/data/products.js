@@ -1,65 +1,50 @@
 export const products = [
   {
     id: 1,
-    slug: "golden-paani-face-wash",
+    slug: "golden-paani-facewash",
     name: "Golden Paani Face Wash",
-    category: "Daily Cleanser",
+    category: "Skincare",
+    image: "/images/products/facewash.png",
     price: 299,
     oldPrice: 399,
-    image: "/images/products/facewash.png",
     badge: "BEST SELLER",
     rating: 5,
-
-    description:
-      "Golden Paani Face Wash deeply cleanses your skin while maintaining natural moisture. Enriched with premium natural ingredients for a fresh, healthy and radiant glow.",
-
-    benefits: [
-      "Deep Cleansing",
-      "Removes Dirt & Oil",
-      "Hydrates Skin",
-      "Brightens Complexion",
-    ],
-
-    ingredients: [
-      "Aloe Vera",
-      "Vitamin E",
-      "Green Tea Extract",
-      "Natural Minerals",
-    ],
-
-    size: "100ml",
-    stock: true,
+    reviews: 128,
   },
-
   {
     id: 2,
     slug: "golden-paani-toner",
     name: "Golden Paani Toner",
-    category: "Skin Toner",
+    category: "Skincare",
+    image: "/images/products/toner.png",
     price: 399,
     oldPrice: 499,
-    image: "/images/products/toner.png",
     badge: "NEW",
     rating: 5,
-
-    description:
-      "Golden Paani Toner refreshes and balances your skin while tightening pores and preparing it for your skincare routine.",
-
-    benefits: [
-      "Refreshes Skin",
-      "Minimizes Pores",
-      "Hydrates",
-      "Balances pH",
-    ],
-
-    ingredients: [
-      "Rose Water",
-      "Witch Hazel",
-      "Vitamin B5",
-      "Natural Minerals",
-    ],
-
-    size: "100ml",
-    stock: true,
+    reviews: 92,
+  },
+  {
+    id: 3,
+    slug: "golden-paani-serum",
+    name: "Golden Paani Serum",
+    category: "Serums",
+    image: "/images/products/Serum.png",
+    price: 599,
+    oldPrice: 799,
+    badge: "HOT",
+    rating: 5,
+    reviews: 154,
+  },
+  {
+    id: 4,
+    slug: "golden-paani-cream",
+    name: "Golden Paani Cream",
+    category: "Moisturizers",
+    image: "/images/products/Cream.png",
+    price: 499,
+    oldPrice: 699,
+    badge: "POPULAR",
+    rating: 5,
+    reviews: 116,
   },
 ];
