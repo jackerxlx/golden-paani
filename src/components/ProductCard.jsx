@@ -19,70 +19,84 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="group relative bg-[#111111] border border-[#2d2d2d] rounded-3xl overflow-hidden hover:border-[#D4AF37] hover:-translate-y-2 transition-all duration-500">
+    <div className="group relative overflow-hidden rounded-[28px] bg-white/90 backdrop-blur-md shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/40">
 
       {/* Badge */}
 
-      <div className="absolute top-5 left-5 z-10">
-        <span className="bg-[#D4AF37] text-black text-xs font-semibold px-4 py-2 rounded-full">
+      <div className="absolute top-5 left-5 z-20">
+        <span className="bg-[#D4AF37] text-black text-[11px] font-semibold px-4 py-2 rounded-full tracking-wider">
           {product.badge}
         </span>
       </div>
 
-      {/* Image */}
+      {/* Product Image */}
 
       <Link href={`/products/${product.slug}`}>
-        <div className="h-[420px] bg-[#181818] flex items-center justify-center overflow-hidden cursor-pointer">
+
+        <div className="h-[380px] flex items-center justify-center overflow-hidden bg-[#f8f5ef] cursor-pointer p-8">
 
           <Image
             src={product.image}
             alt={product.name}
-            width={320}
+            width={340}
             height={420}
             className="object-contain group-hover:scale-110 transition duration-700"
           />
 
         </div>
+
       </Link>
 
       {/* Content */}
 
-      <div className="p-8">
+      <div className="px-7 py-6">
 
-        <p className="uppercase tracking-[3px] text-[#D4AF37] text-xs mb-3">
+        <p className="uppercase tracking-[3px] text-[#B8860B] text-[11px] mb-2">
           {product.category}
         </p>
 
         <Link href={`/products/${product.slug}`}>
-          <h3 className="text-white text-3xl font-[var(--font-cormorant)] mb-3 hover:text-[#D4AF37] transition">
+          <h3 className="font-[var(--font-cormorant)] text-[30px] text-[#222] hover:text-[#B8860B] transition mb-3 leading-tight">
             {product.name}
           </h3>
         </Link>
 
-        <div className="text-[#D4AF37] mb-5">
+        {/* Rating */}
+
+        <div className="text-[#D4AF37] text-sm mb-4">
           ★★★★★
         </div>
 
-        <div className="flex items-center justify-between mb-8">
+        {/* Price */}
 
-          <span className="text-white text-3xl font-bold">
+        <div className="flex items-center gap-3 mb-6">
+
+          <span className="text-[30px] font-bold text-[#111]">
             ₹{product.price}
           </span>
 
+          {product.oldPrice && (
+            <span className="text-gray-400 line-through text-lg">
+              ₹{product.oldPrice}
+            </span>
+          )}
+
         </div>
 
-        <div className="flex gap-4">
+        {/* Buttons */}
+
+        <div className="flex gap-3">
 
           <button
             onClick={handleAddToCart}
-            className="flex-1 py-3 bg-[#D4AF37] text-black rounded-full font-semibold hover:bg-white transition"
+            className="flex-1 py-3 rounded-full bg-[#D4AF37] text-black font-semibold hover:bg-black hover:text-white transition duration-300"
           >
             Add To Cart
           </button>
 
           <button
             onClick={handleBuyNow}
-            className="flex-1 py-3 border border-[#D4AF37] text-[#D4AF37] rounded-full hover:bg-[#D4AF37] hover:text-black transition"
+            className="flex-1 py-3 rounded-full border border-[#D4AF37] text-[#B8860B] hover:bg-[#D4AF37] hover:text-black transition duration-300"
           >
             Buy Now
           </button>

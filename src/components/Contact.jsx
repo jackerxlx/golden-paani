@@ -2,57 +2,95 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-[#050505] py-28"
+      className="relative py-28 overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(135deg, #f8efd9 0%, #fffaf0 45%, #ead39a 100%)",
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      {/* Soft decorative glow */}
+      <div className="absolute top-0 left-0 w-80 h-80 bg-[#D4AF37]/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#B8860B]/10 rounded-full blur-3xl" />
 
-        <p className="text-center uppercase tracking-[8px] text-[#D4AF37] text-sm mb-5">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+
+        {/* Heading */}
+
+        <p className="text-center uppercase tracking-[8px] text-[#9A7208] text-sm mb-5">
           Contact Us
         </p>
 
-        <h2 className="text-center text-white text-5xl lg:text-7xl font-[var(--font-cormorant)] mb-20">
-          Get In <span className="text-[#D4AF37]">Touch</span>
+        <h2 className="text-center text-[#241f16] text-5xl lg:text-7xl font-[var(--font-cormorant)] mb-20">
+          Get In <span className="text-[#B8860B]">Touch</span>
         </h2>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
 
-          {/* Left */}
+          {/* LEFT SIDE */}
 
-          <div>
+          <div className="bg-white/70 backdrop-blur-sm border border-[#D4AF37]/30 rounded-3xl p-8 lg:p-12 shadow-xl">
 
-            <h3 className="text-white text-3xl font-[var(--font-cormorant)] mb-8">
+            <h3 className="text-[#241f16] text-3xl font-[var(--font-cormorant)] mb-8">
               We'd Love To Hear From You
             </h3>
 
             <div className="space-y-8">
 
+              {/* Name */}
+
               <div>
-                <p className="text-[#D4AF37] uppercase text-sm tracking-[3px] mb-2">
+                <p className="text-[#B8860B] uppercase text-sm tracking-[3px] mb-2">
+                  Contact Person
+                </p>
+
+                <p className="text-[#332d22] text-lg font-medium">
+                  Mr. Durgesh Kumar
+                </p>
+              </div>
+
+              {/* Email */}
+
+              <div>
+                <p className="text-[#B8860B] uppercase text-sm tracking-[3px] mb-2">
                   Email
                 </p>
 
-                <p className="text-white/80">
-                  support@goldenpaani.com
-                </p>
+                <a
+                  href="mailto:sales@goldenpaani.com"
+                  className="text-[#332d22] text-lg hover:text-[#B8860B] transition"
+                >
+                  sales@goldenpaani.com
+                </a>
               </div>
 
+              {/* Phone */}
+
               <div>
-                <p className="text-[#D4AF37] uppercase text-sm tracking-[3px] mb-2">
-                  Phone
+                <p className="text-[#B8860B] uppercase text-sm tracking-[3px] mb-2">
+                  Phone / WhatsApp
                 </p>
 
-                <p className="text-white/80">
-                  +91 98765 43210
-                </p>
+                <a
+                  href="tel:+918757536215"
+                  className="text-[#332d22] text-lg hover:text-[#B8860B] transition"
+                >
+                  +91 87575 36215
+                </a>
               </div>
 
+              {/* Address */}
+
               <div>
-                <p className="text-[#D4AF37] uppercase text-sm tracking-[3px] mb-2">
+                <p className="text-[#B8860B] uppercase text-sm tracking-[3px] mb-2">
                   Address
                 </p>
 
-                <p className="text-white/80">
-                  New Delhi, India
+                <p className="text-[#332d22] text-lg leading-8">
+                  KLJ Noida One,
+                  <br />
+                  Noida Sector 62,
+                  <br />
+                  Uttar Pradesh, India
                 </p>
               </div>
 
@@ -60,33 +98,121 @@ export default function Contact() {
 
           </div>
 
-          {/* Right */}
+          {/* RIGHT SIDE — FORM */}
 
-          <form className="space-y-6">
+          <div className="bg-white/70 backdrop-blur-sm border border-[#D4AF37]/30 rounded-3xl p-8 lg:p-12 shadow-xl">
 
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-full bg-[#111] border border-[#333] rounded-xl px-5 py-4 text-white outline-none focus:border-[#D4AF37]"
-            />
+            <form className="space-y-6">
 
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="w-full bg-[#111] border border-[#333] rounded-xl px-5 py-4 text-white outline-none focus:border-[#D4AF37]"
-            />
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="
+                  w-full
+                  bg-white/80
+                  border
+                  border-[#d8c79d]
+                  rounded-xl
+                  px-5
+                  py-4
+                  text-[#241f16]
+                  placeholder:text-[#8b806c]
+                  outline-none
+                  focus:border-[#B8860B]
+                  focus:ring-2
+                  focus:ring-[#D4AF37]/20
+                  transition
+                "
+              />
 
-            <textarea
-              rows="6"
-              placeholder="Your Message"
-              className="w-full bg-[#111] border border-[#333] rounded-xl px-5 py-4 text-white outline-none focus:border-[#D4AF37]"
-            />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="
+                  w-full
+                  bg-white/80
+                  border
+                  border-[#d8c79d]
+                  rounded-xl
+                  px-5
+                  py-4
+                  text-[#241f16]
+                  placeholder:text-[#8b806c]
+                  outline-none
+                  focus:border-[#B8860B]
+                  focus:ring-2
+                  focus:ring-[#D4AF37]/20
+                  transition
+                "
+              />
 
-            <button className="bg-[#D4AF37] text-black px-10 py-4 rounded-full font-semibold hover:bg-white transition">
-              Send Message
-            </button>
+              <input
+                type="tel"
+                placeholder="Your Phone Number"
+                className="
+                  w-full
+                  bg-white/80
+                  border
+                  border-[#d8c79d]
+                  rounded-xl
+                  px-5
+                  py-4
+                  text-[#241f16]
+                  placeholder:text-[#8b806c]
+                  outline-none
+                  focus:border-[#B8860B]
+                  focus:ring-2
+                  focus:ring-[#D4AF37]/20
+                  transition
+                "
+              />
 
-          </form>
+              <textarea
+                rows="6"
+                placeholder="Your Message"
+                className="
+                  w-full
+                  bg-white/80
+                  border
+                  border-[#d8c79d]
+                  rounded-xl
+                  px-5
+                  py-4
+                  text-[#241f16]
+                  placeholder:text-[#8b806c]
+                  outline-none
+                  focus:border-[#B8860B]
+                  focus:ring-2
+                  focus:ring-[#D4AF37]/20
+                  transition
+                  resize-none
+                "
+              />
+
+              <button
+                type="submit"
+                className="
+                  bg-[#D4AF37]
+                  text-[#17130b]
+                  px-10
+                  py-4
+                  rounded-full
+                  font-semibold
+                  tracking-wide
+                  shadow-lg
+                  hover:bg-[#B8860B]
+                  hover:text-white
+                  hover:-translate-y-1
+                  transition-all
+                  duration-300
+                "
+              >
+                Send Message
+              </button>
+
+            </form>
+
+          </div>
 
         </div>
 

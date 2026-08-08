@@ -1,120 +1,392 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Search, User, MapPin, ShoppingCart } from "lucide-react";
+import {
+  Search,
+  User,
+  MapPin,
+  ShoppingCart,
+} from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
   const { totalItems } = useCart();
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Initial state
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-[1500px] mx-auto h-[90px] px-8 lg:px-12 flex items-center justify-between">
+    <>
+      {/* =====================================================
+          TOP ANNOUNCEMENT BAR
+      ===================================================== */}
 
-        {/* ================= LOGO ================= */}
+      <div
+        suppressHydrationWarning
+        className={`fixed top-0 left-0 w-full z-[60]
+          h-[34px]
+          bg-[#F5E7C8]
+          border-b border-[#D4AF37]/30
+          overflow-hidden
+          transition-all duration-500 ease-in-out
+          ${
+            scrolled
+              ? "opacity-0 -translate-y-full pointer-events-none"
+              : "opacity-100 translate-y-0"
+          }
+        `}
+      >
+        <div className="announcement-track">
 
-        <Link href="/" className="flex flex-col leading-none select-none">
+          {/* First Content */}
 
-          <h1 className="font-[var(--font-cormorant)] text-[44px] font-semibold tracking-wide text-[#D4AF37] leading-none">
-            GOLDEN PAANI
-          </h1>
+          <div className="announcement-content">
 
-          <span className="mt-1 text-[10px] uppercase tracking-[5px] text-[#F5E7A1] font-medium">
-            PURE BY NATURE • PERFECTED FOR YOU
-          </span>
+            <span>
+              ✦ FREE SHIPPING ON ORDERS ABOVE ₹999
+            </span>
 
-        </Link>
+            <span>
+              ✦ PURE SKINCARE • PREMIUM QUALITY
+            </span>
 
-        {/* ================= MENU ================= */}
+            <span>
+              ✦ SHOP GOLDEN PAANI
+            </span>
 
-        <nav>
-          <ul className="flex items-center gap-12">
+            <span>
+              ✦ NATURAL INGREDIENTS • LUXURY CARE
+            </span>
 
-            <li>
-              <Link
-                href="/"
-                className="uppercase text-[13px] tracking-[3px] text-white hover:text-[#D4AF37] transition"
-              >
-                Home
-              </Link>
-            </li>
+            <span>
+              ✦ FREE SHIPPING ON ORDERS ABOVE ₹999
+            </span>
 
-            <li>
-              <a
-                href="#about"
-                className="uppercase text-[13px] tracking-[3px] text-white hover:text-[#D4AF37] transition"
-              >
-                About
-              </a>
-            </li>
+            <span>
+              ✦ PURE SKINCARE • PREMIUM QUALITY
+            </span>
 
-            <li>
-              <Link
-                href="/products"
-                className="uppercase text-[13px] tracking-[3px] text-white hover:text-[#D4AF37] transition"
-              >
-                Products
-              </Link>
-            </li>
+          </div>
 
-            <li>
-              <a
-                href="#benefits"
-                className="uppercase text-[13px] tracking-[3px] text-white hover:text-[#D4AF37] transition"
-              >
-                Benefits
-              </a>
-            </li>
+          {/* Duplicate Content */}
 
-            <li>
-              <a
-                href="#contact"
-                className="uppercase text-[13px] tracking-[3px] text-white hover:text-[#D4AF37] transition"
-              >
-                Contact
-              </a>
-            </li>
+          <div
+            className="announcement-content"
+            aria-hidden="true"
+          >
 
-          </ul>
-        </nav>
+            <span>
+              ✦ FREE SHIPPING ON ORDERS ABOVE ₹999
+            </span>
 
-        {/* ================= ICONS ================= */}
+            <span>
+              ✦ PURE SKINCARE • PREMIUM QUALITY
+            </span>
 
-        <div className="flex items-center gap-6 text-white">
+            <span>
+              ✦ SHOP GOLDEN PAANI
+            </span>
 
-          <Search
-            size={20}
-            className="cursor-pointer hover:text-[#D4AF37] transition"
-          />
+            <span>
+              ✦ NATURAL INGREDIENTS • LUXURY CARE
+            </span>
 
-          <User
-            size={20}
-            className="cursor-pointer hover:text-[#D4AF37] transition"
-          />
+            <span>
+              ✦ FREE SHIPPING ON ORDERS ABOVE ₹999
+            </span>
 
-          <MapPin
-            size={20}
-            className="cursor-pointer hover:text-[#D4AF37] transition"
-          />
+            <span>
+              ✦ PURE SKINCARE • PREMIUM QUALITY
+            </span>
 
-          {/* CART */}
+          </div>
+
+        </div>
+      </div>
+
+      {/* =====================================================
+          MAIN NAVBAR
+      ===================================================== */}
+
+      <header
+        suppressHydrationWarning
+        className={`fixed left-0 w-full z-50
+          bg-black/20
+          backdrop-blur-md
+          border-b border-white/10
+          transition-all duration-500 ease-in-out
+          ${
+            scrolled
+              ? "top-0"
+              : "top-[34px]"
+          }
+        `}
+      >
+
+        <div
+          className="
+            max-w-[1500px]
+            mx-auto
+            h-[90px]
+            px-6
+            sm:px-8
+            lg:px-12
+            flex
+            items-center
+            justify-between
+          "
+        >
+
+          {/* =================================================
+              LOGO
+          ================================================= */}
 
           <Link
-            href="/cart"
-            className="relative cursor-pointer hover:text-[#D4AF37] transition"
+            href="/"
+            className="
+              flex
+              flex-col
+              leading-none
+              select-none
+              shrink-0
+            "
           >
-            <ShoppingCart size={20} />
 
-            {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-[#D4AF37] text-black text-[11px] font-bold flex items-center justify-center">
-                {totalItems}
-              </span>
-            )}
+            <h1
+              className="
+                font-[var(--font-cormorant)]
+                text-[30px]
+                sm:text-[38px]
+                font-semibold
+                tracking-wide
+                text-[#D4AF37]
+              "
+            >
+              GOLDEN PAANI
+            </h1>
+
+            <span
+              className="
+                mt-1
+                text-[7px]
+                sm:text-[9px]
+                uppercase
+                tracking-[2px]
+                sm:tracking-[4px]
+                text-[#F5E7A1]
+              "
+            >
+              PURE BY NATURE • PERFECTED FOR YOU
+            </span>
+
           </Link>
+
+          {/* =================================================
+              DESKTOP NAVIGATION
+          ================================================= */}
+
+          <nav className="hidden lg:block">
+
+            <ul className="flex items-center gap-8 xl:gap-10">
+
+              <li>
+                <Link
+                  href="/"
+                  className="
+                    uppercase
+                    text-[12px]
+                    tracking-[3px]
+                    text-white
+                    hover:text-[#D4AF37]
+                    transition
+                  "
+                >
+                  Home
+                </Link>
+              </li>
+
+              <li>
+                <a
+                  href="#about"
+                  className="
+                    uppercase
+                    text-[12px]
+                    tracking-[3px]
+                    text-white
+                    hover:text-[#D4AF37]
+                    transition
+                  "
+                >
+                  About
+                </a>
+              </li>
+
+              <li>
+                <Link
+                  href="/products"
+                  className="
+                    uppercase
+                    text-[12px]
+                    tracking-[3px]
+                    text-white
+                    hover:text-[#D4AF37]
+                    transition
+                  "
+                >
+                  Products
+                </Link>
+              </li>
+
+              <li>
+                <a
+                  href="#benefits"
+                  className="
+                    uppercase
+                    text-[12px]
+                    tracking-[3px]
+                    text-white
+                    hover:text-[#D4AF37]
+                    transition
+                  "
+                >
+                  Benefits
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#contact"
+                  className="
+                    uppercase
+                    text-[12px]
+                    tracking-[3px]
+                    text-white
+                    hover:text-[#D4AF37]
+                    transition
+                  "
+                >
+                  Contact
+                </a>
+              </li>
+
+            </ul>
+
+          </nav>
+
+          {/* =================================================
+              ICONS
+          ================================================= */}
+
+          <div
+            className="
+              flex
+              items-center
+              gap-4
+              sm:gap-5
+              text-white
+              shrink-0
+            "
+          >
+
+            {/* Search */}
+
+            <button
+              type="button"
+              aria-label="Search"
+              className="
+                hover:text-[#D4AF37]
+                transition
+              "
+            >
+              <Search size={19} />
+            </button>
+
+            {/* User */}
+
+            <button
+              type="button"
+              aria-label="Account"
+              className="
+                hover:text-[#D4AF37]
+                transition
+              "
+            >
+              <User size={19} />
+            </button>
+
+            {/* Location */}
+
+            <button
+              type="button"
+              aria-label="Location"
+              className="
+                hidden
+                sm:block
+                hover:text-[#D4AF37]
+                transition
+              "
+            >
+              <MapPin size={19} />
+            </button>
+
+            {/* Cart */}
+
+            <Link
+              href="/cart"
+              aria-label="Shopping cart"
+              className="
+                relative
+                hover:text-[#D4AF37]
+                transition
+              "
+            >
+
+              <ShoppingCart size={20} />
+
+              {totalItems > 0 && (
+                <span
+                  className="
+                    absolute
+                    -top-2
+                    -right-2
+                    w-5
+                    h-5
+                    rounded-full
+                    bg-[#D4AF37]
+                    text-black
+                    text-[10px]
+                    font-bold
+                    flex
+                    items-center
+                    justify-center
+                  "
+                >
+                  {totalItems}
+                </span>
+              )}
+
+            </Link>
+
+          </div>
 
         </div>
 
-      </div>
-    </header>
+      </header>
+    </>
   );
 }

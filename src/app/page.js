@@ -7,6 +7,7 @@ import Testimonials from "../components/Testimonials";
 import Newsletter from "../components/Newsletter";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -20,6 +21,9 @@ export default function Home() {
       <Newsletter />
       <Contact />
       <Footer />
-     </>
+
+      {/* Floating WhatsApp Button */}
+      <WhatsAppButton />
+    </>
   );
 }
