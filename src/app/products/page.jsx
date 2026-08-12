@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductGrid from "@/components/ProductGrid";
+import Benefits from "@/components/Benefits";
 
 export const metadata = {
   title: "Products | Golden Paani",
@@ -23,7 +24,10 @@ export default function ProductsPage() {
             </p>
 
             <h1 className="text-5xl lg:text-7xl text-white font-[var(--font-cormorant)]">
-              Premium <span className="text-[#D4AF37]">Products</span>
+              Premium{" "}
+              <span className="text-[#D4AF37]">
+                Products
+              </span>
             </h1>
 
             <p className="text-white/70 mt-6 max-w-2xl mx-auto text-lg leading-8">
@@ -37,6 +41,11 @@ export default function ProductsPage() {
         </div>
 
       </main>
+
+      {/* BENEFITS */}
+      <section id="benefits">
+        <Benefits />
+      </section>
 
       <Footer />
     </>

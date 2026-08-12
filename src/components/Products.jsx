@@ -6,76 +6,211 @@ export default function Products() {
   return (
     <section
       id="products"
-      className="relative py-24 bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: "url('/images/products/products-bg.jpeg')",
-      }}
+      className="
+        relative
+        overflow-hidden
+        bg-[#f8f5ef]
+        py-24
+        lg:py-28
+      "
     >
-      {/* Light Overlay */}
+      {/* =========================================
+          SOFT GOLD BACKGROUND
+      ========================================= */}
 
-      <div className="absolute inset-0 bg-white/15 backdrop-[2px]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(212,175,55,0.12),transparent_45%)]" />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-8 lg:px-12">
+      <div className="absolute -left-40 top-40 h-[400px] w-[400px] rounded-full bg-[#D4AF37]/10 blur-[120px]" />
 
-        {/* Small Heading */}
+      <div className="absolute -right-40 bottom-20 h-[400px] w-[400px] rounded-full bg-[#D4AF37]/10 blur-[120px]" />
 
-        <p className="text-center uppercase tracking-[8px] text-[#B8860B] text-xs lg:text-sm mb-4">
-          OUR PRODUCTS
-        </p>
+      {/* =========================================
+          CONTENT
+      ========================================= */}
 
-        {/* Main Heading */}
+      <div className="relative z-10 mx-auto max-w-[1450px] px-6 sm:px-8 lg:px-12">
 
-        <h2
-          className="text-center font-[var(--font-cormorant)] font-light text-[#1f1f1f] leading-none mb-5"
-          style={{
-            fontSize: "clamp(48px,5vw,72px)",
-            textShadow: "0 2px 10px rgba(255,255,255,.35)",
-          }}
-        >
-          Discover Our
-          <br />
-          Premium Skincare
-        </h2>
+        {/* =========================================
+            SECTION INTRO
+        ========================================= */}
 
-        {/* Description */}
+        <div className="mx-auto mb-14 max-w-3xl text-center">
 
-        <p
-          className="text-center text-[#444] text-[17px] leading-8 max-w-2xl mx-auto mb-12"
-          style={{
-            textShadow: "0 1px 4px rgba(255,255,255,.25)",
-          }}
-        >
-          Crafted with nature's finest botanical ingredients for
-          healthy, radiant and naturally glowing skin.
-        </p>
+          <p
+            className="
+              mb-4
+              text-xs
+              uppercase
+              tracking-[6px]
+              text-[#B8860B]
+              sm:text-sm
+              sm:tracking-[8px]
+            "
+          >
+            Our Products
+          </p>
 
-        {/* Category Buttons */}
+          <h2
+            className="
+              font-[var(--font-cormorant)]
+              text-5xl
+              font-light
+              leading-[0.95]
+              text-[#1f1f1f]
+              sm:text-6xl
+              lg:text-7xl
+            "
+          >
+            Discover Our
+            <br />
+            <span className="text-[#B8860B]">
+              Premium Skincare
+            </span>
+          </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <p
+            className="
+              mx-auto
+              mt-6
+              max-w-2xl
+              text-sm
+              leading-7
+              text-[#555]
+              sm:text-base
+              sm:leading-8
+            "
+          >
+            Crafted with nature's finest botanical ingredients
+            to cleanse, nourish and reveal naturally radiant
+            skin.
+          </p>
 
-          <button className="px-7 py-3 rounded-full bg-[#B8860B] text-white text-sm font-medium shadow-lg hover:bg-[#a07307] transition">
+        </div>
+
+        {/* =========================================
+            CATEGORY FILTERS
+        ========================================= */}
+
+        <div className="mb-14 flex flex-wrap justify-center gap-3 sm:gap-4">
+
+          <button
+            className="
+              rounded-full
+              bg-[#D4AF37]
+              px-7
+              py-3
+              text-xs
+              font-semibold
+              uppercase
+              tracking-[1px]
+              text-black
+              shadow-md
+              transition-all
+              duration-300
+              hover:bg-black
+              hover:text-white
+            "
+          >
             All Products
           </button>
 
-          <button className="px-7 py-3 rounded-full bg-white/70 backdrop-blur-md border border-[#B8860B] text-[#7d5a08] text-sm hover:bg-[#B8860B] hover:text-white transition">
+          <button
+            className="
+              rounded-full
+              border
+              border-[#D4AF37]
+              bg-white/70
+              px-7
+              py-3
+              text-xs
+              font-medium
+              uppercase
+              tracking-[1px]
+              text-[#7d5a08]
+              backdrop-blur-sm
+              transition-all
+              duration-300
+              hover:bg-[#D4AF37]
+              hover:text-black
+            "
+          >
             Skincare
           </button>
 
-          <button className="px-7 py-3 rounded-full bg-white/70 backdrop-blur-md border border-[#B8860B] text-[#7d5a08] text-sm hover:bg-[#B8860B] hover:text-white transition">
+          <button
+            className="
+              rounded-full
+              border
+              border-[#D4AF37]
+              bg-white/70
+              px-7
+              py-3
+              text-xs
+              font-medium
+              uppercase
+              tracking-[1px]
+              text-[#7d5a08]
+              backdrop-blur-sm
+              transition-all
+              duration-300
+              hover:bg-[#D4AF37]
+              hover:text-black
+            "
+          >
             Serums
           </button>
 
-          <button className="px-7 py-3 rounded-full bg-white/70 backdrop-blur-md border border-[#B8860B] text-[#7d5a08] text-sm hover:bg-[#B8860B] hover:text-white transition">
+          <button
+            className="
+              rounded-full
+              border
+              border-[#D4AF37]
+              bg-white/70
+              px-7
+              py-3
+              text-xs
+              font-medium
+              uppercase
+              tracking-[1px]
+              text-[#7d5a08]
+              backdrop-blur-sm
+              transition-all
+              duration-300
+              hover:bg-[#D4AF37]
+              hover:text-black
+            "
+          >
             Moisturizers
           </button>
 
-          <button className="px-7 py-3 rounded-full bg-white/70 backdrop-blur-md border border-[#B8860B] text-[#7d5a08] text-sm hover:bg-[#B8860B] hover:text-white transition">
+          <button
+            className="
+              rounded-full
+              border
+              border-[#D4AF37]
+              bg-white/70
+              px-7
+              py-3
+              text-xs
+              font-medium
+              uppercase
+              tracking-[1px]
+              text-[#7d5a08]
+              backdrop-blur-sm
+              transition-all
+              duration-300
+              hover:bg-[#D4AF37]
+              hover:text-black
+            "
+          >
             Haircare
           </button>
 
         </div>
 
-        {/* Product Grid */}
+        {/* =========================================
+            PRODUCT GRID
+        ========================================= */}
 
         <ProductGrid />
 

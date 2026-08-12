@@ -13,17 +13,19 @@ import { useCart } from "@/context/CartContext";
 export default function Navbar() {
   const { totalItems } = useCart();
 
+  const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
     };
 
-    window.addEventListener("scroll", handleScroll);
-
-    // Initial state
     handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -33,27 +35,33 @@ export default function Navbar() {
   return (
     <>
       {/* =====================================================
-          TOP ANNOUNCEMENT BAR
+          TOP ANNOUNCEMENT / OFFER BAR
       ===================================================== */}
 
       <div
-        suppressHydrationWarning
-        className={`fixed top-0 left-0 w-full z-[60]
+        className={`
+          fixed
+          top-0
+          left-0
+          z-[100]
           h-[34px]
-          bg-[#F5E7C8]
-          border-b border-[#D4AF37]/30
+          w-full
           overflow-hidden
-          transition-all duration-500 ease-in-out
+          border-b
+          border-[#8B6508]/30
+          bg-[#F5E7C8]
+          transition-all
+          duration-500
           ${
-            scrolled
-              ? "opacity-0 -translate-y-full pointer-events-none"
-              : "opacity-100 translate-y-0"
+            mounted && scrolled
+              ? "-translate-y-full opacity-0 pointer-events-none"
+              : "translate-y-0 opacity-100"
           }
         `}
       >
         <div className="announcement-track">
 
-          {/* First Content */}
+          {/* FIRST TRACK */}
 
           <div className="announcement-content">
 
@@ -62,11 +70,11 @@ export default function Navbar() {
             </span>
 
             <span>
-              ✦ PURE SKINCARE • PREMIUM QUALITY
+              ✦ PREMIUM SKINCARE • PURE QUALITY
             </span>
 
             <span>
-              ✦ SHOP GOLDEN PAANI
+              ✦ GOLDEN PAANI SPECIAL OFFER
             </span>
 
             <span>
@@ -78,12 +86,13 @@ export default function Navbar() {
             </span>
 
             <span>
-              ✦ PURE SKINCARE • PREMIUM QUALITY
+              ✦ PREMIUM SKINCARE • PURE QUALITY
             </span>
 
           </div>
 
-          {/* Duplicate Content */}
+
+          {/* DUPLICATE TRACK */}
 
           <div
             className="announcement-content"
@@ -95,11 +104,11 @@ export default function Navbar() {
             </span>
 
             <span>
-              ✦ PURE SKINCARE • PREMIUM QUALITY
+              ✦ PREMIUM SKINCARE • PURE QUALITY
             </span>
 
             <span>
-              ✦ SHOP GOLDEN PAANI
+              ✦ GOLDEN PAANI SPECIAL OFFER
             </span>
 
             <span>
@@ -111,7 +120,7 @@ export default function Navbar() {
             </span>
 
             <span>
-              ✦ PURE SKINCARE • PREMIUM QUALITY
+              ✦ PREMIUM SKINCARE • PURE QUALITY
             </span>
 
           </div>
@@ -119,36 +128,50 @@ export default function Navbar() {
         </div>
       </div>
 
+
       {/* =====================================================
-          MAIN NAVBAR
+          MAIN PREMIUM GOLD HEADER
       ===================================================== */}
 
       <header
-        suppressHydrationWarning
-        className={`fixed left-0 w-full z-50
-          bg-black/20
-          backdrop-blur-md
-          border-b border-white/10
-          transition-all duration-500 ease-in-out
+        className={`
+          fixed
+          left-0
+          z-[90]
+          w-full
+
+          border-b
+          border-[#8B6508]/40
+
           ${
-            scrolled
+            mounted && scrolled
               ? "top-0"
               : "top-[34px]"
           }
+
+          bg-gradient-to-r
+          from-[#B8860B]
+          via-[#D4AF37]
+          to-[#B8860B]
+
+          shadow-[0_8px_30px_rgba(90,60,0,0.25)]
+
+          transition-all
+          duration-500
         `}
       >
 
         <div
           className="
-            max-w-[1500px]
             mx-auto
+            flex
             h-[90px]
+            max-w-[1500px]
+            items-center
+            justify-between
             px-6
             sm:px-8
             lg:px-12
-            flex
-            items-center
-            justify-between
           "
         >
 
@@ -159,42 +182,56 @@ export default function Navbar() {
           <Link
             href="/"
             className="
+              group
               flex
-              flex-col
-              leading-none
-              select-none
               shrink-0
+              select-none
+              flex-col
+              items-start
+              leading-none
             "
           >
+
+            {/* GOLDEN PAANI */}
 
             <h1
               className="
                 font-[var(--font-cormorant)]
-                text-[30px]
-                sm:text-[38px]
+                text-[28px]
                 font-semibold
-                tracking-wide
-                text-[#D4AF37]
+                tracking-[2px]
+                text-white
+                transition-all
+                duration-300
+                group-hover:text-[#FFF8D6]
+                sm:text-[36px]
               "
             >
               GOLDEN PAANI
             </h1>
 
+
+            {/* TAGLINE */}
+
             <span
               className="
-                mt-1
+                mt-[4px]
+                ml-[1px]
+                whitespace-nowrap
                 text-[7px]
-                sm:text-[9px]
+                font-medium
                 uppercase
                 tracking-[2px]
-                sm:tracking-[4px]
-                text-[#F5E7A1]
+                text-[#FFF4C2]
+                sm:text-[8px]
+                sm:tracking-[2.5px]
               "
             >
               PURE BY NATURE • PERFECTED FOR YOU
             </span>
 
           </Link>
+
 
           {/* =================================================
               DESKTOP NAVIGATION
@@ -204,80 +241,79 @@ export default function Navbar() {
 
             <ul className="flex items-center gap-8 xl:gap-10">
 
+              {/* HOME */}
+
               <li>
                 <Link
                   href="/"
                   className="
+                    text-[11px]
                     uppercase
-                    text-[12px]
                     tracking-[3px]
                     text-white
-                    hover:text-[#D4AF37]
-                    transition
+                    transition-all
+                    duration-300
+                    hover:text-[#FFF4C2]
                   "
                 >
                   Home
                 </Link>
               </li>
 
-              <li>
-                <a
-                  href="#about"
-                  className="
-                    uppercase
-                    text-[12px]
-                    tracking-[3px]
-                    text-white
-                    hover:text-[#D4AF37]
-                    transition
-                  "
-                >
-                  About
-                </a>
-              </li>
+
+              {/* PRODUCTS */}
 
               <li>
                 <Link
                   href="/products"
                   className="
+                    text-[11px]
                     uppercase
-                    text-[12px]
                     tracking-[3px]
                     text-white
-                    hover:text-[#D4AF37]
-                    transition
+                    transition-all
+                    duration-300
+                    hover:text-[#FFF4C2]
                   "
                 >
                   Products
                 </Link>
               </li>
 
+
+              {/* BENEFITS */}
+
               <li>
                 <a
-                  href="#benefits"
+                  href="/#benefits"
                   className="
+                    text-[11px]
                     uppercase
-                    text-[12px]
                     tracking-[3px]
                     text-white
-                    hover:text-[#D4AF37]
-                    transition
+                    transition-all
+                    duration-300
+                    hover:text-[#FFF4C2]
                   "
                 >
                   Benefits
                 </a>
               </li>
 
+
+              {/* CONTACT */}
+
               <li>
                 <a
-                  href="#contact"
+                  href="/#contact"
                   className="
+                    text-[11px]
                     uppercase
-                    text-[12px]
                     tracking-[3px]
                     text-white
-                    hover:text-[#D4AF37]
-                    transition
+                    transition-all
+                    duration-300
+                    hover:text-[#FFF4C2]
                   "
                 >
                   Contact
@@ -288,92 +324,117 @@ export default function Navbar() {
 
           </nav>
 
+
           {/* =================================================
-              ICONS
+              RIGHT ICONS
           ================================================= */}
 
           <div
             className="
               flex
+              shrink-0
               items-center
               gap-4
-              sm:gap-5
               text-white
-              shrink-0
+              sm:gap-5
             "
           >
 
-            {/* Search */}
+            {/* SEARCH */}
 
             <button
               type="button"
               aria-label="Search"
               className="
-                hover:text-[#D4AF37]
-                transition
+                transition-all
+                duration-300
+                hover:scale-110
+                hover:text-[#FFF4C2]
               "
             >
-              <Search size={19} />
+              <Search
+                size={19}
+                strokeWidth={1.5}
+              />
             </button>
 
-            {/* User */}
+
+            {/* USER */}
 
             <button
               type="button"
               aria-label="Account"
               className="
-                hover:text-[#D4AF37]
-                transition
+                transition-all
+                duration-300
+                hover:scale-110
+                hover:text-[#FFF4C2]
               "
             >
-              <User size={19} />
+              <User
+                size={19}
+                strokeWidth={1.5}
+              />
             </button>
 
-            {/* Location */}
+
+            {/* LOCATION */}
 
             <button
               type="button"
               aria-label="Location"
               className="
                 hidden
+                transition-all
+                duration-300
+                hover:scale-110
+                hover:text-[#FFF4C2]
                 sm:block
-                hover:text-[#D4AF37]
-                transition
               "
             >
-              <MapPin size={19} />
+              <MapPin
+                size={19}
+                strokeWidth={1.5}
+              />
             </button>
 
-            {/* Cart */}
+
+            {/* CART */}
 
             <Link
               href="/cart"
               aria-label="Shopping cart"
               className="
                 relative
-                hover:text-[#D4AF37]
-                transition
+                transition-all
+                duration-300
+                hover:scale-110
+                hover:text-[#FFF4C2]
               "
             >
 
-              <ShoppingCart size={20} />
+              <ShoppingCart
+                size={20}
+                strokeWidth={1.5}
+              />
 
-              {totalItems > 0 && (
+              {mounted && totalItems > 0 && (
                 <span
                   className="
                     absolute
-                    -top-2
                     -right-2
-                    w-5
-                    h-5
-                    rounded-full
-                    bg-[#D4AF37]
-                    text-black
-                    text-[10px]
-                    font-bold
+                    -top-2
                     flex
+                    h-5
+                    w-5
                     items-center
                     justify-center
+                    rounded-full
+                    bg-white
+                    text-[9px]
+                    font-bold
+                    text-[#8B6508]
+                    shadow-[0_0_12px_rgba(255,255,255,0.35)]
                   "
                 >
                   {totalItems}

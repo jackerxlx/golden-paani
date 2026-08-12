@@ -17,6 +17,7 @@
   --white: #ffffff;
 }
 
+
 /* =========================================
    RESET
 ========================================= */
@@ -53,6 +54,7 @@ img {
   height: auto;
 }
 
+
 /* =========================================
    SELECTION
 ========================================= */
@@ -61,6 +63,7 @@ img {
   background: var(--gold);
   color: #000;
 }
+
 
 /* =========================================
    SCROLLBAR
@@ -82,6 +85,7 @@ img {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gold-dark);
 }
+
 
 /* =========================================
    GOLDEN PAANI ANNOUNCEMENT BAR
@@ -110,6 +114,7 @@ img {
   text-transform: uppercase;
 }
 
+
 /* Moving animation */
 
 @keyframes goldenAnnouncement {
@@ -122,11 +127,13 @@ img {
   }
 }
 
+
 /* Pause announcement when user hovers */
 
 .announcement-track:hover {
   animation-play-state: paused;
 }
+
 
 /* =========================================
    GOLDEN TEXT
@@ -151,6 +158,7 @@ img {
   color: transparent;
 }
 
+
 /* =========================================
    GOLDEN BORDER
 ========================================= */
@@ -158,6 +166,7 @@ img {
 .gold-border {
   border: 1px solid var(--gold);
 }
+
 
 /* =========================================
    GOLDEN BUTTON
@@ -175,6 +184,7 @@ img {
   border-color: #fff;
   color: #000;
 }
+
 
 /* =========================================
    SECTION CONTAINER
@@ -195,6 +205,7 @@ img {
   }
 }
 
+
 /* =========================================
    SMOOTH IMAGE
 ========================================= */
@@ -207,6 +218,7 @@ img {
   transform: scale(1.05);
 }
 
+
 /* =========================================
    LUXURY CARD
 ========================================= */
@@ -215,6 +227,7 @@ img {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(212, 175, 55, 0.25);
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+
   transition:
     transform 0.4s ease,
     box-shadow 0.4s ease,
@@ -227,6 +240,7 @@ img {
   box-shadow: 0 20px 55px rgba(212, 175, 55, 0.18);
 }
 
+
 /* =========================================
    FORM FOCUS
 ========================================= */
@@ -235,6 +249,7 @@ input:focus,
 textarea:focus {
   outline: none;
 }
+
 
 /* =========================================
    MOBILE ANNOUNCEMENT BAR
@@ -256,18 +271,321 @@ textarea:focus {
   }
 }
 
+
+/* =========================================================
+   GOLDEN PAANI — PREMIUM VIDEO HERO
+========================================================= */
+
+
+/* =========================================
+   HERO MAIN TITLE
+========================================= */
+
+.hero-title {
+  font-size: clamp(4.5rem, 10vw, 9rem);
+
+  animation:
+    heroTitleReveal 1.6s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+
+  text-rendering: geometricPrecision;
+}
+
+
+/* =========================================
+   GOLDEN HERO TEXT
+========================================= */
+
+.hero-gold {
+  color: #d4af37;
+
+  text-shadow:
+    0 0 25px rgba(212, 175, 55, 0.18),
+    0 0 60px rgba(212, 175, 55, 0.08);
+
+  animation:
+    goldenGlow 4s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================
+   HERO ELEMENT FADE
+========================================= */
+
+.hero-fade {
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  animation:
+    heroFadeUp 1.1s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+}
+
+
+/* =========================================
+   HERO ANIMATION DELAYS
+========================================= */
+
+.hero-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.hero-delay-2 {
+  animation-delay: 0.55s;
+}
+
+.hero-delay-3 {
+  animation-delay: 0.75s;
+}
+
+.hero-delay-4 {
+  animation-delay: 1s;
+}
+
+.hero-delay-5 {
+  animation-delay: 1.25s;
+}
+
+
+/* =========================================
+   MAIN TITLE REVEAL
+========================================= */
+
+@keyframes heroTitleReveal {
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(45px)
+      scale(0.98);
+
+    letter-spacing: 15px;
+
+    filter: blur(10px);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    letter-spacing: 4px;
+
+    filter: blur(0);
+  }
+}
+
+
+/* =========================================
+   FADE UP ANIMATION
+========================================= */
+
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+
+    transform: translateY(25px);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   GOLDEN GLOW
+========================================= */
+
+@keyframes goldenGlow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 20px rgba(212, 175, 55, 0.12),
+      0 0 40px rgba(212, 175, 55, 0.05);
+  }
+
+  50% {
+    text-shadow:
+      0 0 30px rgba(212, 175, 55, 0.30),
+      0 0 70px rgba(212, 175, 55, 0.12);
+  }
+}
+
+
+/* =========================================
+   PREMIUM VIDEO EFFECT
+========================================= */
+
+.hero-video {
+  transform: scale(1.02);
+
+  animation: heroVideoZoom 12s ease-out forwards;
+}
+
+
+/* Slow cinematic camera movement */
+
+@keyframes heroVideoZoom {
+  0% {
+    transform: scale(1.02);
+  }
+
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+
+/* =========================================
+   HERO GOLDEN LIGHT
+========================================= */
+
+.hero-golden-light {
+  pointer-events: none;
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(212, 175, 55, 0.12),
+      transparent 55%
+    );
+
+  mix-blend-mode: screen;
+}
+
+
+/* =========================================
+   HERO PREMIUM VIGNETTE
+========================================= */
+
+.hero-vignette {
+  pointer-events: none;
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 35%,
+      rgba(0, 0, 0, 0.45) 100%
+    );
+}
+
+
+/* =========================================
+   SCROLL INDICATOR
+========================================= */
+
+.hero-scroll {
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(5px);
+  }
+}
+
+
+/* =========================================
+   PREMIUM BUTTON HOVER
+========================================= */
+
+.hero-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-button::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+
+  transition: left 0.7s ease;
+}
+
+.hero-button:hover::before {
+  left: 120%;
+}
+
+
+/* =========================================
+   HERO MOBILE
+========================================= */
+
+@media (max-width: 640px) {
+
+  .hero-title {
+    font-size: clamp(3.5rem, 17vw, 6rem);
+
+    letter-spacing: 1px;
+  }
+
+  .hero-fade {
+    transform: translateY(18px);
+  }
+
+  .hero-video {
+    transform: scale(1.04);
+  }
+}
+
+
 /* =========================================
    REDUCE MOTION
-   Accessibility
+   ACCESSIBILITY
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior: auto;
   }
 
   .announcement-track {
     animation: none;
+  }
+
+  .hero-title,
+  .hero-gold,
+  .hero-fade,
+  .hero-video,
+  .hero-scroll {
+    animation: none !important;
   }
 
   * {

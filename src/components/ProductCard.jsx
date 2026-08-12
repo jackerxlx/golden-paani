@@ -19,84 +19,239 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="group relative overflow-hidden rounded-[28px] bg-white/90 backdrop-blur-md shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/40">
+    <div
+      className="
+        group
+        relative
+        flex
+        h-full
+        flex-col
+        overflow-hidden
+        rounded-3xl
+        border
+        border-[#D4AF37]/20
+        bg-[#111111]
+        shadow-[0_15px_50px_rgba(0,0,0,0.12)]
+        transition-all
+        duration-500
+        hover:-translate-y-2
+        hover:border-[#D4AF37]/60
+        hover:shadow-[0_25px_70px_rgba(0,0,0,0.25)]
+      "
+    >
 
-      {/* Badge */}
+      {/* =========================================
+          BADGE
+      ========================================= */}
 
-      <div className="absolute top-5 left-5 z-20">
-        <span className="bg-[#D4AF37] text-black text-[11px] font-semibold px-4 py-2 rounded-full tracking-wider">
+      <div className="absolute left-5 top-5 z-20">
+        <span
+          className="
+            rounded-full
+            bg-[#D4AF37]
+            px-4
+            py-2
+            text-[10px]
+            font-semibold
+            tracking-[2px]
+            text-black
+          "
+        >
           {product.badge}
         </span>
       </div>
 
-      {/* Product Image */}
+      {/* =========================================
+          PRODUCT IMAGE
+      ========================================= */}
 
       <Link href={`/products/${product.slug}`}>
-
-        <div className="h-[380px] flex items-center justify-center overflow-hidden bg-[#f8f5ef] cursor-pointer p-8">
-
+        <div
+          className="
+            relative
+            h-[360px]
+            overflow-hidden
+            bg-[#181818]
+          "
+        >
           <Image
             src={product.image}
             alt={product.name}
-            width={340}
-            height={420}
-            className="object-contain group-hover:scale-110 transition duration-700"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            className="
+              object-contain
+              p-8
+              transition-transform
+              duration-700
+              group-hover:scale-110
+            "
           />
 
-        </div>
+          {/* Image glow */}
 
+          <div
+            className="
+              pointer-events-none
+              absolute
+              inset-0
+              bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.12),transparent_55%)]
+            "
+          />
+
+          {/* View Product */}
+
+          <div
+            className="
+              absolute
+              bottom-5
+              left-1/2
+              -translate-x-1/2
+              translate-y-4
+              opacity-0
+              transition-all
+              duration-500
+              group-hover:translate-y-0
+              group-hover:opacity-100
+            "
+          >
+            <span
+              className="
+                rounded-full
+                bg-white
+                px-5
+                py-2
+                text-[10px]
+                font-semibold
+                uppercase
+                tracking-[2px]
+                text-black
+              "
+            >
+              View Product
+            </span>
+          </div>
+        </div>
       </Link>
 
-      {/* Content */}
+      {/* =========================================
+          CONTENT
+      ========================================= */}
 
-      <div className="px-7 py-6">
+      <div className="flex flex-1 flex-col px-6 py-7">
 
-        <p className="uppercase tracking-[3px] text-[#B8860B] text-[11px] mb-2">
+        {/* Category */}
+
+        <p
+          className="
+            mb-2
+            text-[10px]
+            uppercase
+            tracking-[3px]
+            text-[#D4AF37]
+          "
+        >
           {product.category}
         </p>
 
+        {/* Product Name */}
+
         <Link href={`/products/${product.slug}`}>
-          <h3 className="font-[var(--font-cormorant)] text-[30px] text-[#222] hover:text-[#B8860B] transition mb-3 leading-tight">
+          <h3
+            className="
+              min-h-[68px]
+              font-[var(--font-cormorant)]
+              text-[29px]
+              font-medium
+              leading-tight
+              text-white
+              transition-colors
+              duration-300
+              hover:text-[#D4AF37]
+            "
+          >
             {product.name}
           </h3>
         </Link>
 
         {/* Rating */}
 
-        <div className="text-[#D4AF37] text-sm mb-4">
-          ★★★★★
+        <div className="mt-3 flex items-center gap-2">
+
+          <span className="text-[13px] tracking-[2px] text-[#D4AF37]">
+            ★★★★★
+          </span>
+
+          <span className="text-[11px] text-white/40">
+            ({product.reviews})
+          </span>
+
         </div>
 
         {/* Price */}
 
-        <div className="flex items-center gap-3 mb-6">
+        <div className="mt-4 flex items-center gap-3">
 
-          <span className="text-[30px] font-bold text-[#111]">
+          <span className="text-[25px] font-semibold text-white">
             ₹{product.price}
           </span>
 
           {product.oldPrice && (
-            <span className="text-gray-400 line-through text-lg">
+            <span className="text-sm text-white/35 line-through">
               ₹{product.oldPrice}
             </span>
           )}
 
         </div>
 
-        {/* Buttons */}
+        {/* =========================================
+            BUTTONS
+        ========================================= */}
 
-        <div className="flex gap-3">
+        <div className="mt-auto flex gap-3 pt-6">
 
           <button
+            type="button"
             onClick={handleAddToCart}
-            className="flex-1 py-3 rounded-full bg-[#D4AF37] text-black font-semibold hover:bg-black hover:text-white transition duration-300"
+            className="
+              flex-1
+              rounded-full
+              bg-[#D4AF37]
+              px-4
+              py-3
+              text-[10px]
+              font-semibold
+              uppercase
+              tracking-[1.5px]
+              text-black
+              transition-all
+              duration-300
+              hover:bg-[#F0D66B]
+            "
           >
             Add To Cart
           </button>
 
           <button
+            type="button"
             onClick={handleBuyNow}
-            className="flex-1 py-3 rounded-full border border-[#D4AF37] text-[#B8860B] hover:bg-[#D4AF37] hover:text-black transition duration-300"
+            className="
+              flex-1
+              rounded-full
+              border
+              border-[#D4AF37]
+              px-4
+              py-3
+              text-[10px]
+              font-semibold
+              uppercase
+              tracking-[1.5px]
+              text-[#D4AF37]
+              transition-all
+              duration-300
+              hover:bg-[#D4AF37]
+              hover:text-black
+            "
           >
             Buy Now
           </button>

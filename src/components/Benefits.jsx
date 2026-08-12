@@ -36,80 +36,298 @@ export default function Benefits() {
   return (
     <section
       id="benefits"
-      className="relative !bg-[#F7F3E8] py-20 sm:py-24 lg:py-28 overflow-hidden"
+      className="
+        relative
+        overflow-hidden
+        bg-[#fffaf0]
+        py-24
+        sm:py-28
+        lg:py-32
+      "
     >
-      {/* Gold Glow */}
+      {/* =========================================
+          GOLDEN GLOW
+      ========================================= */}
 
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#D4AF37]/10 blur-[100px] rounded-full pointer-events-none" />
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -top-32
+          left-1/2
+          h-[300px]
+          w-[500px]
+          -translate-x-1/2
+          rounded-full
+          bg-[#D4AF37]/10
+          blur-[100px]
+        "
+      />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+      {/* =========================================
+          TOP GOLD LINE
+      ========================================= */}
 
-        {/* Heading */}
+      <div
+        className="
+          absolute
+          left-1/2
+          top-0
+          h-px
+          w-24
+          -translate-x-1/2
+          bg-gradient-to-r
+          from-transparent
+          via-[#D4AF37]
+          to-transparent
+        "
+      />
 
-        <div className="text-center max-w-3xl mx-auto">
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          max-w-[1400px]
+          px-6
+          sm:px-8
+          lg:px-12
+        "
+      >
+        {/* =========================================
+            HEADING
+        ========================================= */}
 
-          <p className="uppercase tracking-[5px] sm:tracking-[7px] text-[#B8860B] text-xs sm:text-sm mb-4">
-            Why Choose Us
+        <div className="mx-auto max-w-3xl text-center">
+
+          <p
+            className="
+              mb-4
+              text-[10px]
+              font-medium
+              uppercase
+              tracking-[5px]
+              text-[#B8860B]
+              sm:text-xs
+              sm:tracking-[7px]
+            "
+          >
+            Why Golden Paani
           </p>
 
-          <h2 className="text-[#1B1B1B] text-4xl sm:text-5xl lg:text-6xl font-[var(--font-cormorant)] leading-tight mb-5">
+          <h2
+            className="
+              mb-5
+              font-[var(--font-cormorant)]
+              text-5xl
+              font-medium
+              leading-tight
+              text-[#1B1B1B]
+              sm:text-6xl
+              lg:text-[72px]
+            "
+          >
             Nature Meets{" "}
             <span className="text-[#B8860B]">
               Luxury
             </span>
           </h2>
 
-          <p className="text-[#555] text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-7 lg:leading-8">
+          <p
+            className="
+              mx-auto
+              max-w-2xl
+              text-sm
+              leading-7
+              text-[#555]
+              sm:text-base
+              lg:text-[17px]
+              lg:leading-8
+            "
+          >
             We combine nature's finest ingredients with modern
             skincare science to create products that nourish,
             protect and enhance your natural glow.
           </p>
-
         </div>
 
-        {/* Cards */}
+        {/* =========================================
+            BENEFIT CARDS
+        ========================================= */}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 mt-14 lg:mt-16">
-
+        <div
+          className="
+            mt-14
+            grid
+            grid-cols-1
+            gap-5
+            sm:grid-cols-2
+            lg:mt-16
+            lg:grid-cols-4
+            lg:gap-6
+          "
+        >
           {benefits.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={index}
-                className="group bg-white border border-[#D4AF37]/30 rounded-2xl p-7 lg:p-8 text-center shadow-sm hover:shadow-xl hover:border-[#D4AF37] hover:-translate-y-2 transition-all duration-500"
+                className="
+                  group
+                  relative
+                  overflow-hidden
+                  rounded-2xl
+                  border
+                  border-[#D4AF37]/20
+                  bg-white
+                  p-7
+                  text-center
+                  shadow-[0_10px_40px_rgba(0,0,0,0.04)]
+                  transition-all
+                  duration-500
+                  hover:-translate-y-2
+                  hover:border-[#D4AF37]/70
+                  hover:shadow-[0_20px_50px_rgba(184,134,11,0.12)]
+                  lg:p-8
+                "
               >
+                {/* Card golden glow */}
 
-                {/* Icon */}
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    left-1/2
+                    top-0
+                    h-32
+                    w-32
+                    -translate-x-1/2
+                    rounded-full
+                    bg-[#D4AF37]/10
+                    blur-3xl
+                    opacity-0
+                    transition-opacity
+                    duration-500
+                    group-hover:opacity-100
+                  "
+                />
 
-                <div className="w-16 h-16 lg:w-[72px] lg:h-[72px] rounded-full border border-[#D4AF37] flex items-center justify-center mx-auto mb-6 group-hover:bg-[#D4AF37] transition-all duration-500">
+                {/* =================================
+                    ICON
+                ================================= */}
 
+                <div
+                  className="
+                    relative
+                    mx-auto
+                    mb-6
+                    flex
+                    h-16
+                    w-16
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-[#D4AF37]
+                    bg-[#fffaf0]
+                    transition-all
+                    duration-500
+                    group-hover:bg-[#D4AF37]
+                    group-hover:shadow-[0_0_30px_rgba(212,175,55,0.25)]
+                    lg:h-[72px]
+                    lg:w-[72px]
+                  "
+                >
                   <Icon
-                    size={30}
+                    size={29}
                     strokeWidth={1.5}
-                    className="text-[#B8860B] group-hover:text-white transition-colors duration-500"
+                    className="
+                      text-[#B8860B]
+                      transition-colors
+                      duration-500
+                      group-hover:text-white
+                    "
                   />
-
                 </div>
 
-                {/* Title */}
+                {/* =================================
+                    TITLE
+                ================================= */}
 
-                <h3 className="text-[#222] text-xl lg:text-2xl font-[var(--font-cormorant)] font-semibold mb-3">
+                <h3
+                  className="
+                    relative
+                    mb-3
+                    font-[var(--font-cormorant)]
+                    text-2xl
+                    font-semibold
+                    leading-tight
+                    text-[#222]
+                  "
+                >
                   {item.title}
                 </h3>
 
-                {/* Description */}
+                {/* =================================
+                    DESCRIPTION
+                ================================= */}
 
-                <p className="text-[#666] text-sm leading-6 lg:leading-7">
+                <p
+                  className="
+                    relative
+                    text-sm
+                    leading-6
+                    text-[#666]
+                    lg:leading-7
+                  "
+                >
                   {item.description}
                 </p>
 
+                {/* Bottom gold line */}
+
+                <div
+                  className="
+                    absolute
+                    bottom-0
+                    left-1/2
+                    h-[2px]
+                    w-0
+                    -translate-x-1/2
+                    bg-[#D4AF37]
+                    transition-all
+                    duration-500
+                    group-hover:w-20
+                  "
+                />
               </div>
             );
           })}
-
         </div>
 
+        {/* =========================================
+            BOTTOM STATEMENT
+        ========================================= */}
+
+        <div className="mt-16 text-center sm:mt-20">
+
+          <div className="mx-auto mb-5 h-px w-16 bg-[#D4AF37]/50" />
+
+          <p
+            className="
+              font-[var(--font-cormorant)]
+              text-xl
+              italic
+              text-[#444]
+              sm:text-2xl
+            "
+          >
+            Pure ingredients. Thoughtful formulas. A golden
+            ritual for your skin.
+          </p>
+
+        </div>
       </div>
     </section>
   );

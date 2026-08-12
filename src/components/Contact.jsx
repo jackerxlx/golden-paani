@@ -71,10 +71,10 @@ export default function Contact() {
                 </p>
 
                 <a
-                  href="tel:+918757536215"
+                  href="tel:+919693912883"
                   className="text-[#332d22] text-lg hover:text-[#B8860B] transition"
                 >
-                  +91 87575 36215
+                  +91 96939 12883
                 </a>
               </div>
 
