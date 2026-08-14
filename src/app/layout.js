@@ -2,7 +2,7 @@ import { Poppins, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
 import { CartProvider } from "@/context/CartContext";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/layout/Navbar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -49,11 +49,8 @@ export const metadata = {
   ],
 
   creator: "Golden Paani",
-
   publisher: "Golden Paani",
-
   applicationName: "Golden Paani",
-
   category: "Beauty & Personal Care",
 
   alternates: {
@@ -80,6 +77,7 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -106,19 +104,9 @@ export default function RootLayout({ children }) {
         "
       >
         <CartProvider>
-
-          {/* =========================================
-              GLOBAL NAVBAR
-          ========================================= */}
-
           <Navbar />
 
-          {/* =========================================
-              PAGE CONTENT
-          ========================================= */}
-
           {children}
-
         </CartProvider>
       </body>
     </html>

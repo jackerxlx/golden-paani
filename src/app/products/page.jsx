@@ -1,5 +1,5 @@
-import Footer from "@/components/Footer";
-import ProductGrid from "@/components/ProductGrid";
+import Footer from "@/components/layout/Footer";
+import ProductGrid from "@/components/products/ProductGrid";
 
 export const metadata = {
   title: "Premium Skincare Collection | Golden Paani",
