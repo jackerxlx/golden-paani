@@ -11,21 +11,17 @@ import OfferPopup from "../components/OfferPopup";
 export default function Home() {
   return (
     <>
-      {/* =========================================
-          MAIN HOME PAGE
-      ========================================= */}
-
       <main>
-        {/* 01 — Cinematic Hero */}
+        {/* 01 — Cinematic 3D Video Hero */}
         <Hero />
 
-        {/* 02 — About / Featured Content */}
+        {/* 02 — About */}
         <About />
 
-        {/* 03 — Why Golden Paani */}
+        {/* 03 — Benefits */}
         <Benefits />
 
-        {/* 04 — Customer Reviews */}
+        {/* 04 — Testimonials */}
         <Testimonials />
 
         {/* 05 — Newsletter */}
@@ -35,21 +31,9 @@ export default function Home() {
         <Contact />
       </main>
 
-      {/* =========================================
-          FOOTER
-      ========================================= */}
-
       <Footer />
 
-      {/* =========================================
-          FLOATING WHATSAPP
-      ========================================= */}
-
       <WhatsAppButton />
-
-      {/* =========================================
-          FIRST VISIT OFFER POPUP
-      ========================================= */}
 
       <OfferPopup />
     </>

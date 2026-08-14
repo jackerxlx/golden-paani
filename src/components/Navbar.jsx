@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   Search,
@@ -13,55 +12,28 @@ import { useCart } from "@/context/CartContext";
 export default function Navbar() {
   const { totalItems } = useCart();
 
-  const [mounted, setMounted] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <>
       {/* =====================================================
-          TOP ANNOUNCEMENT / OFFER BAR
+          1. ANNOUNCEMENT / OFFER BAR
       ===================================================== */}
 
       <div
-        className={`
-          fixed
-          top-0
-          left-0
+        className="
+          relative
           z-[100]
           h-[34px]
           w-full
           overflow-hidden
           border-b
-          border-[#8B6508]/30
+          border-[#D4AF37]/30
           bg-[#F5E7C8]
-          transition-all
-          duration-500
-          ${
-            mounted && scrolled
-              ? "-translate-y-full opacity-0 pointer-events-none"
-              : "translate-y-0 opacity-100"
-          }
-        `}
+          text-[#5C4815]
+        "
       >
         <div className="announcement-track">
 
-          {/* FIRST TRACK */}
+          {/* TRACK 1 */}
 
           <div className="announcement-content">
 
@@ -92,7 +64,7 @@ export default function Navbar() {
           </div>
 
 
-          {/* DUPLICATE TRACK */}
+          {/* TRACK 2 */}
 
           <div
             className="announcement-content"
@@ -130,35 +102,23 @@ export default function Navbar() {
 
 
       {/* =====================================================
-          MAIN PREMIUM GOLD HEADER
+          2. PREMIUM TRANSPARENT HEADER
       ===================================================== */}
 
       <header
-        className={`
-          fixed
-          left-0
+        className="
+          relative
           z-[90]
           w-full
-
           border-b
-          border-[#8B6508]/40
-
-          ${
-            mounted && scrolled
-              ? "top-0"
-              : "top-[34px]"
-          }
-
-          bg-gradient-to-r
-          from-[#B8860B]
-          via-[#D4AF37]
-          to-[#B8860B]
-
-          shadow-[0_8px_30px_rgba(90,60,0,0.25)]
-
-          transition-all
-          duration-500
-        `}
+          border-[#D4AF37]/25
+          bg-gradient-to-b
+          from-[#8B6A19]/45
+          via-[#6F5315]/25
+          to-transparent
+          backdrop-blur-[10px]
+          shadow-[0_8px_35px_rgba(0,0,0,0.12)]
+        "
       >
 
         <div
@@ -182,17 +142,13 @@ export default function Navbar() {
           <Link
             href="/"
             className="
-              group
               flex
               shrink-0
               select-none
               flex-col
-              items-start
               leading-none
             "
           >
-
-            {/* GOLDEN PAANI */}
 
             <h1
               className="
@@ -200,31 +156,25 @@ export default function Navbar() {
                 text-[28px]
                 font-semibold
                 tracking-[2px]
-                text-white
-                transition-all
-                duration-300
-                group-hover:text-[#FFF8D6]
+                text-[#D4AF37]
+                drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]
                 sm:text-[36px]
               "
             >
               GOLDEN PAANI
             </h1>
 
-
-            {/* TAGLINE */}
-
             <span
               className="
                 mt-[4px]
-                ml-[1px]
-                whitespace-nowrap
+                block
                 text-[7px]
-                font-medium
                 uppercase
                 tracking-[2px]
-                text-[#FFF4C2]
+                text-[#F5E7A1]
+                drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]
                 sm:text-[8px]
-                sm:tracking-[2.5px]
+                sm:tracking-[3px]
               "
             >
               PURE BY NATURE • PERFECTED FOR YOU
@@ -248,12 +198,14 @@ export default function Navbar() {
                   href="/"
                   className="
                     text-[11px]
+                    font-medium
                     uppercase
                     tracking-[3px]
                     text-white
+                    drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]
                     transition-all
                     duration-300
-                    hover:text-[#FFF4C2]
+                    hover:text-[#D4AF37]
                   "
                 >
                   Home
@@ -268,12 +220,14 @@ export default function Navbar() {
                   href="/products"
                   className="
                     text-[11px]
+                    font-medium
                     uppercase
                     tracking-[3px]
                     text-white
+                    drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]
                     transition-all
                     duration-300
-                    hover:text-[#FFF4C2]
+                    hover:text-[#D4AF37]
                   "
                 >
                   Products
@@ -284,40 +238,44 @@ export default function Navbar() {
               {/* BENEFITS */}
 
               <li>
-                <a
+                <Link
                   href="/#benefits"
                   className="
                     text-[11px]
+                    font-medium
                     uppercase
                     tracking-[3px]
                     text-white
+                    drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]
                     transition-all
                     duration-300
-                    hover:text-[#FFF4C2]
+                    hover:text-[#D4AF37]
                   "
                 >
                   Benefits
-                </a>
+                </Link>
               </li>
 
 
               {/* CONTACT */}
 
               <li>
-                <a
+                <Link
                   href="/#contact"
                   className="
                     text-[11px]
+                    font-medium
                     uppercase
                     tracking-[3px]
                     text-white
+                    drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]
                     transition-all
                     duration-300
-                    hover:text-[#FFF4C2]
+                    hover:text-[#D4AF37]
                   "
                 >
                   Contact
-                </a>
+                </Link>
               </li>
 
             </ul>
@@ -326,7 +284,7 @@ export default function Navbar() {
 
 
           {/* =================================================
-              RIGHT ICONS
+              RIGHT SIDE ICONS
           ================================================= */}
 
           <div
@@ -349,7 +307,7 @@ export default function Navbar() {
                 transition-all
                 duration-300
                 hover:scale-110
-                hover:text-[#FFF4C2]
+                hover:text-[#D4AF37]
               "
             >
               <Search
@@ -368,7 +326,7 @@ export default function Navbar() {
                 transition-all
                 duration-300
                 hover:scale-110
-                hover:text-[#FFF4C2]
+                hover:text-[#D4AF37]
               "
             >
               <User
@@ -388,7 +346,7 @@ export default function Navbar() {
                 transition-all
                 duration-300
                 hover:scale-110
-                hover:text-[#FFF4C2]
+                hover:text-[#D4AF37]
                 sm:block
               "
             >
@@ -409,7 +367,7 @@ export default function Navbar() {
                 transition-all
                 duration-300
                 hover:scale-110
-                hover:text-[#FFF4C2]
+                hover:text-[#D4AF37]
               "
             >
 
@@ -418,7 +376,7 @@ export default function Navbar() {
                 strokeWidth={1.5}
               />
 
-              {mounted && totalItems > 0 && (
+              {totalItems > 0 && (
                 <span
                   className="
                     absolute
@@ -430,11 +388,11 @@ export default function Navbar() {
                     items-center
                     justify-center
                     rounded-full
-                    bg-white
+                    bg-[#D4AF37]
                     text-[9px]
                     font-bold
-                    text-[#8B6508]
-                    shadow-[0_0_12px_rgba(255,255,255,0.35)]
+                    text-black
+                    shadow-[0_0_12px_rgba(212,175,55,0.55)]
                   "
                 >
                   {totalItems}
