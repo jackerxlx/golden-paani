@@ -19,22 +19,106 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata = {
-  title: "Golden Paani | Premium Skincare",
+  metadataBase: new URL("https://goldenpaani.com"),
+
+  title: {
+    default: "Golden Paani | Premium Skincare & Beauty",
+    template: "%s | Golden Paani",
+  },
+
   description:
-    "Luxury skincare crafted with natural ingredients.",
+    "Discover Golden Paani's premium skincare collection, including face wash, toner, serum and moisturizer designed for an elegant everyday skincare ritual.",
+
+  keywords: [
+    "Golden Paani",
+    "Golden Paani skincare",
+    "premium skincare",
+    "luxury skincare",
+    "face wash",
+    "toner",
+    "serum",
+    "moisturizer",
+    "skincare products India",
+    "premium beauty products",
+  ],
+
+  authors: [
+    {
+      name: "Golden Paani",
+    },
+  ],
+
+  creator: "Golden Paani",
+
+  publisher: "Golden Paani",
+
+  applicationName: "Golden Paani",
+
+  category: "Beauty & Personal Care",
+
+  alternates: {
+    canonical: "https://goldenpaani.com",
+  },
+
+  openGraph: {
+    title: "Golden Paani | Premium Skincare & Beauty",
+    description:
+      "Premium skincare crafted for an elegant everyday ritual. Discover the Golden Paani collection.",
+    url: "https://goldenpaani.com",
+    siteName: "Golden Paani",
+    locale: "en_IN",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Golden Paani | Premium Skincare & Beauty",
+    description:
+      "Discover the Golden Paani premium skincare collection.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`${poppins.variable} ${cormorant.variable}`}
     >
-      <body>
+      <body
+        className="
+          min-h-screen
+          bg-[#F8F3E8]
+          font-[var(--font-poppins)]
+          text-[#17140D]
+          antialiased
+        "
+      >
         <CartProvider>
+
+          {/* =========================================
+              GLOBAL NAVBAR
+          ========================================= */}
+
           <Navbar />
-          
+
+          {/* =========================================
+              PAGE CONTENT
+          ========================================= */}
+
           {children}
+
         </CartProvider>
       </body>
     </html>
